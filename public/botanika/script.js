@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoImage = document.querySelector('.navbar-brand img');
     
     // PERHATIAN: Path gambar logo dari input pengguna
-    const logoGreen = 'img/Botanika_Green.png'; 
-    const logoWhite = 'img/Botanika_White_All (1).png'; 
+    const logoGreen = 'img/botanika_white.png'; 
+    const logoWhite = 'img/botanika_white.png'; 
 
     // Tentukan apakah ini halaman Home (index.html, atau root path /)
     const isHomePage = window.location.pathname.endsWith('index.html') || 
