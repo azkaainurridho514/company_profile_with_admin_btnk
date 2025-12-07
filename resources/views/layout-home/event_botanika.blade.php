@@ -2,8 +2,8 @@
     <p class="fw-bold text-center fs-2 mb-3">
         Event Botanika
     </p>
-    <p class="text-center fs-6 mb-3">
-        Nikmati berbagai kegiatan menarik yang kami selenggarakan di BOTANIKA Coffee setiap minggunya!
+    <p class="text-center fs-6 mb-5">
+        {{ $master->desc_event_home }}
     </p>
     <div class="row">
         <div class="col-lg-4 mb-4">

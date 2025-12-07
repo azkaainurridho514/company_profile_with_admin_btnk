@@ -10,13 +10,13 @@
                     Kedai
                 </p>
                 <p class="text-center fs-6 mb-2">
-                    Senin - Jumat: 10.00 - 21.00
+                    Senin - Jumat: {{ $master->kedai_senin_jumat }}
                 </p>
                 <p class="text-center fs-6 mb-2">
-                    Sabtu: 10.00 - 22.00
+                    Sabtu: {{ $master->kedai_sabtu }}
                 </p>
                 <p class="text-center fs-6 mb-2">
-                    Minggu: 06.00 - 21.00
+                    Minggu: {{ $master->kedai_minggu }}
                 </p>
             </div>
         </div>
@@ -24,16 +24,16 @@
             <div class="card p-4">
                 <i class="bi bi-cup-hot fs-1 mx-auto mb-2" style="color: #184D2B"></i>
                 <p class="fw-bold text-center fs-4 mb-2">
-                    Kedai
+                    Wahana
+                </p>
+                 <p class="text-center fs-6 mb-2">
+                    Senin - Jumat: {{ $master->wahana_senin_jumat }}
                 </p>
                 <p class="text-center fs-6 mb-2">
-                    Senin - Jumat: 10.00 - 21.00
+                    Sabtu: {{ $master->wahana_sabtu }}
                 </p>
                 <p class="text-center fs-6 mb-2">
-                    Sabtu: 10.00 - 22.00
-                </p>
-                <p class="text-center fs-6 mb-2">
-                    Minggu: 06.00 - 21.00
+                    Minggu: {{ $master->wahana_minggu }}
                 </p>
             </div>
         </div>
