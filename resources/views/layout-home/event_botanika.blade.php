@@ -6,38 +6,22 @@
         {{ $master->desc_event_home }}
     </p>
     <div class="row">
-        <div class="col-lg-4 mb-4">
-            <div class="card">
-                <img src="{{ asset('botanika/img/front_top_botanika.jpg') }}" alt="">
-                <div class="p-3 mt-1">
-                    <p class="fs-5 text-center fw-bold">Creamy Pasta</p>
-                    <p class="fs-6 text-center">
-                        Pasta creamy lembut dengan topping keju.
-                    </p>
+        @forelse ($event as $item)
+            <div class="col-lg-4 mb-4">
+                <div class="card">
+                    <img src="{{ asset('storage/'.$item->photo) }}" alt="" class="w-100">
+                    <div class="p-3 mt-1">
+                        <p class="fs-5 text-center fw-bold">{{ $item->name }}</p>
+                        <p class="fs-6 text-center">
+                            {{ $item->desc }}
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card">
-                <img src="{{ asset('botanika/img/front_top_botanika.jpg') }}" alt="">
-                <div class="p-3 mt-1">
-                    <p class="fs-5 text-center fw-bold">Creamy Pasta</p>
-                    <p class="fs-6 text-center">
-                        Pasta creamy lembut dengan topping keju.
-                    </p>
-                </div>
+        @empty
+            <div class="text-center">
+                Tidak ada event tersedia.
             </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-            <div class="card">
-                <img src="{{ asset('botanika/img/front_top_botanika.jpg') }}" alt="">
-                <div class="p-3 mt-1">
-                    <p class="fs-5 text-center fw-bold">Creamy Pasta</p>
-                    <p class="fs-6 text-center">
-                        Pasta creamy lembut dengan topping keju.
-                    </p>
-                </div>
-            </div>
-        </div>
+        @endforelse
     </div>
 </div>

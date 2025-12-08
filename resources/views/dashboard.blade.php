@@ -1,6 +1,6 @@
 @extends('layouts.dashboard-main')
 @section('main')
-<form action="{{ route('master.update') }}" method="POST">
+<form action="{{ route('master.update') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-lg-12">
@@ -27,6 +27,16 @@
                 <div class="card-body card-block">
                     <div class="row form-group">
 
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Foto header</label>
+                                    <input type="file" name="foto_header" class="form-control">
+                                    <img src="{{ asset('storage/'.$master->foto_header) }}" class="w-50 mt-3" data-aos="fade-up">
+                                    @error('greating_home_1')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                            </div>
+                        </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="form-control-label">Sapa</label>

@@ -13,7 +13,8 @@ class HomeController extends Controller
     public function index(){
         $master = Master::latest()->limit(1)->get();
         $menu = Menu::latest()->where("is_best", true)->get();
-        return view('index', ["master" => $master[0], "menu" => $menu]);
+        $event = Event::latest()->limit(3)->get();
+        return view('index', ["master" => $master[0], "menu" => $menu, "event" => $event]);
     }
     public function about(){
         $master = Master::latest()->limit(1)->get();
@@ -27,9 +28,7 @@ class HomeController extends Controller
         if ($request->has('category') && $request->category != '') {
             $menuQuery->where('category_id', $request->category);
         }
-
         $menu = $menuQuery->get();
-
         return view('menu', ["master" => $master[0], "categories" => $category, "menu" => $menu]);
     }
     public function event (Request $request)

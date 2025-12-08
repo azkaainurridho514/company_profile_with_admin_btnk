@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         // MASTER
         // ===========================
         DB::table('masters')->insert([
+            'foto_header' => '-',
             'greating_home_1' => 'Selamat datang',
             'greating_home_2' => 'Menikmati Setiap Tegukan Mengabadikan Setiap Sudut',
             'greating_home_3' => 'Lebih dari sekadar kopi, sebuah destinasi. Tempat citarasa berpadu dengan keriaan dan inspirasi. Ciptakan ceritamu di rooftop dan spot foto unik kami',

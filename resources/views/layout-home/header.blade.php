@@ -11,12 +11,12 @@
                {{ $master->greating_home_3 }}
             </p>
             <div class="d-flex gap-2">
-                <button type="button" class="btn btn-green">Menu</button>
+                <a href="/menu" class="btn btn-green">Menu</a>
+                <a href="/event" class="btn btn-green-outline">Event</a>
             </div>
         </div>
         <div class="col-lg-6 d-flex justify-content-center align-items-center">
-            <img src="{{ asset('botanika/img/circle.png') }}"
-                style="width: 75%"
+            <img src="{{ asset('storage/'.$master->foto_header) }}" alt=""  style="width: 75%"
                 data-aos="fade-up">
         </div>
     </div>

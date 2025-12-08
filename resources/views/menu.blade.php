@@ -8,12 +8,16 @@
         {{ $master->desc_our_menu }}
     </p>
     <div class="d-flex justify-content-center gap-2 flex-wrap mb-5">
-        @foreach ($categories as $item)
+        @forelse ($categories as $item)
             <a href="/menu?category={{ $item->id }}" class="btn  {{ request('category') == $item->id ? 'btn-green' : 'btn-green-outline' }}" style="width: fit-content;">{{ $item->name }}</a>
-        @endforeach
+        @empty
+            <div class="text-center">
+                Tidak ada kategori tersedia.
+            </div>
+        @endforelse
     </div>
     <div class="row d-flex justify-content-center gap-3 align-items-stretch">
-        @foreach ($menu as $item)
+        @forelse ($menu as $item)
             <div class="card p-0 col-lg-3">
                 <div class="card">
                     <img src="{{ asset('storage/'.$item->path) }}" alt="" class="w-100">
@@ -25,7 +29,11 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="text-center">
+                Tidak ada menu tersedia.
+            </div>
+        @endforelse
     </div>
 </div>
 @endsection

@@ -9,6 +9,7 @@ class Master extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'foto_header',
         'greating_home_1',
         'greating_home_2',
         'greating_home_3',

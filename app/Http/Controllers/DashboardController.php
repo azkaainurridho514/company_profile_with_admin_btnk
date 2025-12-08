@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Master;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -16,6 +17,7 @@ class DashboardController extends Controller
         $master = Master::firstOrFail();
 
         $data = $request->validate([
+            'foto_header' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             'greating_home_1' => 'required|string',
             'greating_home_2' => 'required|string',
             'greating_home_3' => 'required|string',
@@ -48,8 +50,19 @@ class DashboardController extends Controller
             'desc_event'    => 'required|string',
         ]);
 
+        if ($request->hasFile('foto_header')) {
+
+            if ($master->foto_header && Storage::disk('public')->exists($master->foto_header)) {
+                Storage::disk('public')->delete($master->foto_header);
+            }
+            $filePath = $request->file('foto_header')->store('home', 'public');
+            $data['foto_header'] = $filePath;
+        }
+
+
         $master->update($data);
 
-        return back()->with('success', 'Master berhasil diperbarui!');
+        return redirect()->route('dashboard')->with('success', 'Master berhasil diperbarui!');
+
     }
 }
