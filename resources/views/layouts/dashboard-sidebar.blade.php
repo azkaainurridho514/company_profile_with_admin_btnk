@@ -11,18 +11,40 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="/admin/home"> <i class="menu-icon fa fa-dashboard"></i>Home</a>
+                    <li class="{{ Request::is('admin/home') ? 'active' : '' }}">
+                        <a href="/admin/home"><i class="menu-icon fa fa-dashboard"></i>Home</a>
                     </li>
-                    <li class="active">
-                        <a href="/admin/event"> <i class="menu-icon fa fa-align-left"></i>Event</a>
+
+                    <li class="{{ Request::is('admin/event') ? 'active' : '' }}">
+                        <a href="/admin/event"><i class="menu-icon fa fa-align-left"></i>Event</a>
                     </li>
-                    <li class="active">
-                        <a href="/admin/menu"> <i class="menu-icon fa fa-shopping-cart"></i>Menu</a>
+
+                    <li class="{{ Request::is('admin/menu') ? 'active' : '' }}">
+                        <a href="/admin/menu"><i class="menu-icon fa fa-shopping-cart"></i>Menu</a>
                     </li>
-                    <li class="active">
-                        <a href="/admin/category"> <i class="menu-icon fa fa-archive"></i>Kategori</a>
+
+                    <li class="{{ Request::is('admin/category') ? 'active' : '' }}">
+                        <a href="/admin/category"><i class="menu-icon fa fa-archive"></i>Kategori</a>
                     </li>
+
+                    <li class="{{ Request::is('admin/facility') ? 'active' : '' }}">
+                        <a href="/admin/facility"><i class="menu-icon fa fa-info"></i>Fasilitas</a>
+                    </li>
+                    <li class="{{ Request::is('login-admin') ? 'active' : '' }}">
+                        <a href="#"
+                            onclick="event.preventDefault(); 
+                                    if (confirm('Apakah anda yakin ingin logout?')) {
+                                        document.getElementById('logout-form').submit();
+                                    }">
+                            <i class="menu-icon fa fa-sign-out"></i> Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+
+
                 </ul>
             </div>
         </nav>

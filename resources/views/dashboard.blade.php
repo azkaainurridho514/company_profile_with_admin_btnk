@@ -32,9 +32,6 @@
                                 <label class="form-control-label">Foto header</label>
                                     <input type="file" name="foto_header" class="form-control">
                                     <img src="{{ asset('storage/'.$master->foto_header) }}" class="w-50 mt-3" data-aos="fade-up">
-                                    @error('greating_home_1')
-                                        <small class="text-danger">Field ini harus di isi</small>
-                                    @enderror
                             </div>
                         </div>
                         <div class="col-12">
@@ -205,6 +202,35 @@
                                 @enderror
                             </div>
                         </div>
+                        
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Foto Sejarah</label>
+                                <input type="file" name="foto_sejarah" class="form-control">
+                                <img src="{{ asset('storage/'.$master->foto_sejarah) }}" class="w-50 mt-3" data-aos="fade-up">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Sejarah</label>
+                                <textarea name="sejarah" class="form-control" rows="5">{{ $master->sejarah }}</textarea>
+                                @error('sejarah')
+                                    <small class="text-danger">Field ini harus di isi</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Desc Fasilitas</label>
+                                <input type="text"  
+                                    value="{{ $master->desc_facilities }}" 
+                                    name="desc_facilities" 
+                                    class="form-control">
+                                    @error('desc_facilities')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -339,6 +365,7 @@
                     </div>
                 </div>
             </div>
+
 
         </div>
     </div>

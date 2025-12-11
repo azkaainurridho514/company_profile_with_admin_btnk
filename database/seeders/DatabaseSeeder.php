@@ -6,19 +6,37 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+
     public function run(): void
     {
+
+        // ===========================
+        // USERS
+        // ===========================
+        DB::table('users')->insert([
+            [
+                'name'       => 'Admin Botanika',
+                'email'      => 'adminbotanika@gmail.com',
+                'password'   => Hash::make('adminwebsitebotanikakuningan2025'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+
+
         // ===========================
         // MASTER
         // ===========================
         DB::table('masters')->insert([
             'foto_header' => '-',
+            'foto_sejarah' => '-',
+            'sejarah' => 'Botanika Coffee berdiri pada tahun 2020 dengan tujuan menghadirkan ruang untuk melepas penat, berbagi cerita, serta menikmati kopi dengan cita rasa terbaik.',
+            'desc_facilities' => 'Nikmati berbagai wahana menarik untuk melengkapi pengalaman terbaikmu di Botanika Coffee.',
             'greating_home_1' => 'Selamat datang',
             'greating_home_2' => 'Menikmati Setiap Tegukan Mengabadikan Setiap Sudut',
             'greating_home_3' => 'Lebih dari sekadar kopi, sebuah destinasi. Tempat citarasa berpadu dengan keriaan dan inspirasi. Ciptakan ceritamu di rooftop dan spot foto unik kami',
@@ -36,13 +54,24 @@ class DatabaseSeeder extends Seeder
             'wahana_minggu' => '06.00 - 21.00',
             'title_footer' => 'Botanika',
             'desc' => 'View • Coffee • Food',
-            'link_instagram' => '',
-            'link_facebook' => '',
-            'link_youtube' => '',
+            'link_instagram' => '-',
+            'link_facebook' => '-',
+            'link_youtube' => '-',
             'alamat' => 'Alamat: Jl. Boenoet Lembur Kuring, Puncak, Kec. Cigugur, Kabupaten Kuningan, Jawa Barat 45552',
             'whatsapp' => '+62 813-2492-6596',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
+        ]);
+
+
+        // ===========================
+        // Facility
+        // ===========================
+        DB::table('facilities')->insert([
+           [ 'name' => 'Free Wifi',
+            'desc' => 'Akses internet gratis untuk bekerja, belajar, atau sekadar berselancar di dunia maya.'],
+           [ 'name' => 'Barista Profesional',
+            'desc' => 'Dilengkapi barista berpengalaman yang meracik kopi dari biji pilihan.'],
         ]);
 
         // ===========================

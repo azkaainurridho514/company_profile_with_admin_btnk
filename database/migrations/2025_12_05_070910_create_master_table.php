@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string("greating_home_3");
             $table->string("visi");
             $table->string("misi");
+            $table->string("foto_sejarah");
+            $table->string("sejarah");
+            $table->string("desc_facilities");
             $table->string("desc_our_menu");
             $table->string("desc_our_menu_home");
             $table->string("desc_event");

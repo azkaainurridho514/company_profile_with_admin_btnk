@@ -3,18 +3,20 @@
         Fasilitas
     </p>
     <p class="text-center fs-6 mb-5">
-        Kami menyediakan fasilitas terbaik untuk kenyamanan Anda saat menikmati kopi favorit.
+        {{ $master->desc_facilities }}
     </p>
-    <div class="row d-flex justify-content-evenly gap-3">
-        <div class="col-lg-4">
-            <div class="card p-4">
-                <p class="fw-bold text-center fs-4 mb-4">
-                    Free Wi-Fi
-                </p>
-                <p class="text-center fs-6 mb-2">
-                    Akses internet gratis untuk bekerja, belajar, atau sekadar berselancar di dunia maya.
-                </p>
+    <div class="row g-3 px-2 d-flex justify-content-center">
+        @foreach ($facilities as $facility)
+            <div class="col-lg-4 d-flex align-items-stretch">
+                <div class="card p-4 w-100">
+                    <p class="fw-bold text-center fs-4 mb-4">
+                        {{ $facility->name }}
+                    </p>
+                    <p class="text-center fs-6 mb-2">
+                        {{ $facility->desc }}
+                    </p>
+                </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>

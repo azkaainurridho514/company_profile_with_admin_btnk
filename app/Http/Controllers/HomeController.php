@@ -7,6 +7,7 @@ use App\Models\Master;
 use App\Models\Menu;
 use App\Models\Categories;
 use App\Models\Event;
+use App\Models\Facility;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,8 @@ class HomeController extends Controller
     }
     public function about(){
         $master = Master::latest()->limit(1)->get();
-        return view('about', ["master" => $master[0]]);
+        $facilities = Facility::latest()->get();
+        return view('about', ["master" => $master[0], "facilities" => $facilities]);
     }
     public function menu(Request $request){
         $master = Master::latest()->limit(1)->get();
@@ -34,7 +36,6 @@ class HomeController extends Controller
     public function event (Request $request)
     {
         $master = Master::latest()->first();
-
         $query = Event::query();
 
         if ($request->filled('year')) {
