@@ -2,9 +2,9 @@
     <p class="fw-bold text-center fs-2 mb-5">
         Jam Operational
     </p>
-    <div class="row d-flex justify-content-evenly gap-3">
+    <div class="row d-flex align-items-stretch justify-content-evenly gap-3">
         <div class="col-lg-5">
-            <div class="card p-4">
+            <div class="card p-4 h-100">
                 <i class="bi bi-cup-hot fs-1 mx-auto mb-2" style="color: #184D2B"></i>
                 <p class="fw-bold text-center fs-4 mb-2">
                     Kedai
@@ -21,8 +21,8 @@
             </div>
         </div>
         <div class="col-lg-5">
-            <div class="card p-4">
-                <i class="bi bi-cup-hot fs-1 mx-auto mb-2" style="color: #184D2B"></i>
+            <div class="card p-4 h-100">
+                <i class="bi bi-speedometer2 fs-1 mx-auto mb-2" style="color: #184D2B"></i>
                 <p class="fw-bold text-center fs-4 mb-2">
                     Wahana
                 </p>
