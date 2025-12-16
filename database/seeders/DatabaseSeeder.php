@@ -33,7 +33,6 @@ class DatabaseSeeder extends Seeder
         // MASTER
         // ===========================
         DB::table('masters')->insert([
-            'foto_header' => '-',
             'foto_sejarah' => '-',
             'sejarah' => 'Botanika Coffee berdiri pada tahun 2020 dengan tujuan menghadirkan ruang untuk melepas penat, berbagi cerita, serta menikmati kopi dengan cita rasa terbaik.',
             'desc_facilities' => 'Nikmati berbagai wahana menarik untuk melengkapi pengalaman terbaikmu di Botanika Coffee.',
@@ -42,16 +41,25 @@ class DatabaseSeeder extends Seeder
             'greating_home_3' => 'Lebih dari sekadar kopi, sebuah destinasi. Tempat citarasa berpadu dengan keriaan dan inspirasi. Ciptakan ceritamu di rooftop dan spot foto unik kami',
             'visi' => 'Menjadi tempat terbaik bagi pecinta kopi dan ruang bertemu yang menginspirasi kreativitas, kebersamaan, dan kebaikan.',
             'misi' => 'Menyajikan kopi berkualitas tinggi dari petani lokal, Menciptakan lingkungan ramah dan nyaman untuk semua, Mengadakan event komunitas untuk karya dan kolaborasi.',
+            'desc_gallery' => 'Suasana, momen, dan kegiatan terbaik dari kedai kami ☕🎶',
             'desc_our_menu' => 'Pilih kategori favoritmu dan temukan rasa terbaik dari Botanika Coffee.',
             'desc_our_menu_home' => 'Nikmati berbagai menu menarik yang kami selenggarakan di BOTANIKA Coffee setiap minggunya!',
             'desc_event' => 'Temukan beragam acara menarik yang siap memeriahkan hari-harimu! Dari live music, pameran seni, workshop seru, hingga event spesial lainnya, semuanya bisa kamu nikmati di sini.',
             'desc_event_home' => 'Nikmati berbagai kegiatan menarik yang kami selenggarakan di BOTANIKA Coffee setiap minggunya!',
-            'kedai_senin_jumat' => '10.00 - 21.00',
-            'kedai_sabtu' => '10.00 - 22.00',
-            'kedai_minggu' => '06.00 - 21.00',
-            'wahana_senin_jumat' => '10.00 - 21.00',
-            'wahana_sabtu' => '10.00 - 22.00',
-            'wahana_minggu' => '06.00 - 21.00',
+            'kedai_senin' => '',
+            'kedai_selasa' => '',
+            'kedai_rabu' => '',
+            'kedai_kamis' => '',
+            'kedai_jumat' => '',
+            'kedai_sabtu' => '',
+            'kedai_minggu' => '',
+            'wahana_senin' => '',
+            'wahana_selasa' => '',
+            'wahana_rabu' => '',
+            'wahana_kamis' => '',
+            'wahana_jumat' => '',
+            'wahana_sabtu' => '',
+            'wahana_minggu' => '',
             'title_footer' => 'Botanika',
             'desc' => 'View • Coffee • Food',
             'link_instagram' => '-',
@@ -67,12 +75,12 @@ class DatabaseSeeder extends Seeder
         // ===========================
         // Facility
         // ===========================
-        DB::table('facilities')->insert([
-           [ 'name' => 'Free Wifi',
-            'desc' => 'Akses internet gratis untuk bekerja, belajar, atau sekadar berselancar di dunia maya.'],
-           [ 'name' => 'Barista Profesional',
-            'desc' => 'Dilengkapi barista berpengalaman yang meracik kopi dari biji pilihan.'],
-        ]);
+        // DB::table('facilities')->insert([
+        //    [ 'name' => 'Free Wifi',
+        //     'desc' => 'Akses internet gratis untuk bekerja, belajar, atau sekadar berselancar di dunia maya.'],
+        //    [ 'name' => 'Barista Profesional',
+        //     'desc' => 'Dilengkapi barista berpengalaman yang meracik kopi dari biji pilihan.'],
+        // ]);
 
         // ===========================
         // CATEGORIES
@@ -99,6 +107,7 @@ class DatabaseSeeder extends Seeder
                 'name' => "Menu $i",
                 'desc' => "Deskripsi menu ke-$i",
                 'path' => "storage/menu/menu_$i.jpg",
+                "price" => "100000",
                 'is_best' => in_array($i, $trueIndexes),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -112,18 +121,18 @@ class DatabaseSeeder extends Seeder
         // ===========================
         // EVENTS 
         // ===========================
-        $events = [];
-        for ($i = 1; $i <= 20; $i++) {
-            $events[] = [
-                'name' => "Event $i",
-                'desc' => "Deskripsi event ke-$i",
-                'photo' => "storage/event/event_$i.jpg",
-                'date' => Carbon::now()->addDays($i),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
-        }
+        // $events = [];
+        // for ($i = 1; $i <= 20; $i++) {
+        //     $events[] = [
+        //         'name' => "Event $i",
+        //         'desc' => "Deskripsi event ke-$i",
+        //         'photo' => "storage/event/event_$i.jpg",
+        //         'date' => Carbon::now()->addDays($i),
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ];
+        // }
 
-        DB::table('events')->insert($events);
+        // DB::table('events')->insert($events);
     }
 }

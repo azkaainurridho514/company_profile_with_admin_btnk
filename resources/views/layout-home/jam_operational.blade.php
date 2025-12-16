@@ -9,15 +9,15 @@
                 <p class="fw-bold text-center fs-4 mb-2">
                     Kedai
                 </p>
-                <p class="text-center fs-6 mb-2">
-                    Senin - Jumat: {{ $master->kedai_senin_jumat }}
-                </p>
-                <p class="text-center fs-6 mb-2">
-                    Sabtu: {{ $master->kedai_sabtu }}
-                </p>
-                <p class="text-center fs-6 mb-2">
-                    Minggu: {{ $master->kedai_minggu }}
-                </p>
+                @foreach ($kedai as $item)
+                    <p class="text-center fs-6 mb-2">
+                        {{ ucfirst($item['start']) }}
+                        @if($item['start'] !== $item['end'])
+                            - {{ ucfirst($item['end']) }}
+                        @endif
+                        : {{ $item['value'] ?: 'Tutup' }}
+                    </p>
+                @endforeach
             </div>
         </div>
         <div class="col-lg-5">
@@ -26,15 +26,16 @@
                 <p class="fw-bold text-center fs-4 mb-2">
                     Wahana
                 </p>
-                 <p class="text-center fs-6 mb-2">
-                    Senin - Jumat: {{ $master->wahana_senin_jumat }}
-                </p>
-                <p class="text-center fs-6 mb-2">
-                    Sabtu: {{ $master->wahana_sabtu }}
-                </p>
-                <p class="text-center fs-6 mb-2">
-                    Minggu: {{ $master->wahana_minggu }}
-                </p>
+
+                @foreach ($wahana as $item)
+                    <p class="text-center fs-6 mb-2">
+                        {{ ucfirst($item['start']) }}
+                        @if($item['start'] !== $item['end'])
+                            - {{ ucfirst($item['end']) }}
+                        @endif
+                        : {{ $item['value'] ?: 'Tutup' }}
+                    </p>
+                @endforeach
             </div>
         </div>
     </div>

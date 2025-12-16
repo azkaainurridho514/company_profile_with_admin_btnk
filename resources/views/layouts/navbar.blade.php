@@ -1,7 +1,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3" style="background:#184D2B">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
             <img src="{{ asset('botanika/img/botanika_white.png') }}"
                 alt="" height="24" class="d-inline-block align-text-top">
             </a>

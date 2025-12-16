@@ -24,6 +24,17 @@
                 </div>
             </div>
             <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Harga</label></div>
+                <div class="col-12 col-md-9">
+                    <input type="text" name="price" class="form-control"
+                    value="{{ old('price', isset($menu) ? $menu->price : '') }}"
+                    >
+                    @error('price')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+            <div class="row form-group">
                 <div class="col col-md-3"><label class=" form-control-label">Deskripsi</label></div>
                 <div class="col-12 col-md-9">
                     <textarea name="desc" class="form-control" rows="4" placeholder="Masukkan teks di sini">{{ old('desc', isset($menu) ? $menu->desc : '') }}</textarea>

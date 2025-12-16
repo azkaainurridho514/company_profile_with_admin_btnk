@@ -8,8 +8,16 @@
     <div class="row">
         @forelse ($event as $item)
             <div class="col-lg-4 mb-4">
-                <div class="card">
-                    <img src="{{ asset('storage/'.$item->photo) }}" alt="" class="w-100">
+                <div class="card" style="cursor:pointer"
+                    onclick="openPreviewEventOrGallery(
+                        '{{ asset('storage/'.$item->photo) }}'
+                    )" >
+                    <div class="ratio ratio-4x3">
+                        <img src="{{ asset('storage/'.$item->photo) }}"
+                            class="rounded"
+                            style="width:100%; height:100%; object-fit:cover;"
+                            alt="foto menu" >
+                    </div>
                     <div class="p-3 mt-1">
                         <p class="fs-5 text-center fw-bold">{{ $item->name }}</p>
                         <p class="fs-6 text-center">
@@ -25,3 +33,4 @@
         @endforelse
     </div>
 </div>
+

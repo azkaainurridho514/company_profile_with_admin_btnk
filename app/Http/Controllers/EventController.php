@@ -28,7 +28,7 @@ class EventController extends Controller
             'name'  => 'required|string|max:255',
             'desc'  => 'required|string',
             'date'  => 'required|date',
-            'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'photo' => 'required|image|mimes:jpg,jpeg|max:2048',
         ]);
 
         $photoPath = null;
@@ -53,7 +53,7 @@ class EventController extends Controller
             'name'  => 'required|string|max:255',
             'desc'  => 'required|string',
             'date'  => 'required|date',
-            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'photo' => 'nullable|image|mimes:jpg,jpeg|max:2048',
         ]);
 
         $photoPath = $event->photo;

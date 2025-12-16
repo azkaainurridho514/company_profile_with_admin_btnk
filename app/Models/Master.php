@@ -9,7 +9,6 @@ class Master extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'foto_header',
         'greating_home_1',
         'greating_home_2',
         'greating_home_3',
@@ -22,12 +21,23 @@ class Master extends Model
         'desc_our_menu_home',
         'desc_event',
         'desc_event_home',
-        'kedai_senin_jumat',
+
+        'kedai_senin',
+        'kedai_selasa',
+        'kedai_rabu',
+        'kedai_kamis',
+        'kedai_jumat',
         'kedai_sabtu',
         'kedai_minggu',
-        'wahana_senin_jumat',
+
+        'wahana_senin',
+        'wahana_selasa',
+        'wahana_rabu',
+        'wahana_kamis',
+        'wahana_jumat',
         'wahana_sabtu',
         'wahana_minggu',
+
         'title_footer',
         'desc',
         'link_instagram',
@@ -36,4 +46,49 @@ class Master extends Model
         'alamat',
         'whatsapp'
     ];
+
+     public function groupedKedai()
+    {
+        return $this->groupDays('kedai_');
+    }
+
+    
+    public function groupedWahana()
+    {
+        return $this->groupDays('wahana_');
+    }
+
+    
+    private function groupDays($prefix)
+    {
+        $days = ['senin','selasa','rabu','kamis','jumat','sabtu','minggu'];
+        $schedule = [];
+
+        foreach ($days as $day) {
+            $column = $prefix.$day;
+            $schedule[$day] = $this->$column ?? '';
+        }
+
+        $result = [];
+        $temp = [];
+
+        foreach ($days as $day) {
+            $value = $schedule[$day];
+
+            if (empty($temp)) {
+                $temp = ['start'=>$day, 'end'=>$day, 'value'=>$value];
+            } elseif ($temp['value'] === $value) {
+                $temp['end'] = $day;
+            } else {
+                $result[] = $temp;
+                $temp = ['start'=>$day, 'end'=>$day, 'value'=>$value];
+            }
+        }
+
+        if (!empty($temp)) {
+            $result[] = $temp;
+        }
+
+        return $result;
+    }
 }

@@ -26,14 +26,6 @@
                 <div class="card-header"><strong>Halaman Home</strong></div>
                 <div class="card-body card-block">
                     <div class="row form-group">
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="form-control-label">Foto header</label>
-                                    <input type="file" name="foto_header" class="form-control">
-                                    <img src="{{ asset('storage/'.$master->foto_header) }}" class="w-50 mt-3" data-aos="fade-up">
-                            </div>
-                        </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="form-control-label">Sapa</label>
@@ -78,12 +70,52 @@
                             <label class="form-control-label"><strong>Kedai</strong></label>
                             <div class="row">
                                 <div class="form-group col-lg-4">
-                                    <label class="form-control-label">Senin - Jumat</label>
+                                    <label class="form-control-label">Senin</label>
                                     <input type="text" 
-                                        value="{{ $master->kedai_senin_jumat }}" 
+                                        value="{{ $master->kedai_senin }}" 
                                         class="form-control" 
-                                        name="kedai_senin_jumat">
-                                    @error('kedai_senin_jumat')
+                                        name="kedai_senin">
+                                    @error('kedai_senin')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="form-control-label">Selasa</label>
+                                    <input type="text" 
+                                        value="{{ $master->kedai_selasa }}" 
+                                        class="form-control" 
+                                        name="kedai_selasa">
+                                    @error('kedai_selasa')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="form-control-label">Rabu</label>
+                                    <input type="text" 
+                                        value="{{ $master->kedai_rabu }}" 
+                                        class="form-control" 
+                                        name="kedai_rabu">
+                                    @error('kedai_rabu')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="form-control-label">Kamis</label>
+                                    <input type="text" 
+                                        value="{{ $master->kedai_kamis }}" 
+                                        class="form-control" 
+                                        name="kedai_kamis">
+                                    @error('kedai_kamis')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="form-control-label">Jumat</label>
+                                    <input type="text" 
+                                        value="{{ $master->kedai_jumat }}" 
+                                        class="form-control" 
+                                        name="kedai_jumat">
+                                    @error('kedai_jumat')
                                         <small class="text-danger">Field ini harus di isi</small>
                                     @enderror
                                 </div>
@@ -117,12 +149,52 @@
                             <label class="form-control-label"><strong>Wahana</strong></label>
                             <div class="row">
                                 <div class="form-group col-lg-4">
-                                    <label class="form-control-label">Senin - Jumat</label>
+                                    <label class="form-control-label">Senin</label>
                                     <input type="text" 
-                                        value="{{ $master->wahana_senin_jumat }}" 
+                                        value="{{ $master->wahana_senin }}" 
                                         class="form-control" 
-                                        name="wahana_senin_jumat">
-                                    @error('wahana_senin_jumat')
+                                        name="wahana_senin">
+                                    @error('wahana_senin')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="form-control-label">Selasa</label>
+                                    <input type="text" 
+                                        value="{{ $master->wahana_selasa }}" 
+                                        class="form-control" 
+                                        name="wahana_selasa">
+                                    @error('wahana_selasa')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="form-control-label">Rabu</label>
+                                    <input type="text" 
+                                        value="{{ $master->wahana_rabu }}" 
+                                        class="form-control" 
+                                        name="wahana_rabu">
+                                    @error('wahana_rabu')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="form-control-label">Kamis</label>
+                                    <input type="text" 
+                                        value="{{ $master->wahana_kamis }}" 
+                                        class="form-control" 
+                                        name="wahana_kamis">
+                                    @error('wahana_kamis')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label class="form-control-label">Jumat</label>
+                                    <input type="text" 
+                                        value="{{ $master->wahana_jumat }}" 
+                                        class="form-control" 
+                                        name="wahana_jumat">
+                                    @error('wahana_jumat')
                                         <small class="text-danger">Field ini harus di isi</small>
                                     @enderror
                                 </div>

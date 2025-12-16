@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("name");
             $table->string("desc");
             $table->string("path");
+            $table->string("price");
             $table->boolean("is_best");
             $table->timestamps();
         });

@@ -13,6 +13,7 @@ class Menu extends Model
         'name',
         'desc',
         'path',
+        "price",
         "is_best"
     ];
     
@@ -20,4 +21,5 @@ class Menu extends Model
     {
         return $this->belongsTo(Categories::class, 'category_id');
     }
+    
 }

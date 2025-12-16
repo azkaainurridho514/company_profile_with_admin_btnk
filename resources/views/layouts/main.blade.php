@@ -75,6 +75,7 @@
             z-index: 1000;
         }
     </style>
+    @stack('style')
 
     <title>@yield('title')</title>
 </head>
@@ -91,6 +92,6 @@
     <script>
         AOS.init();
     </script>
-
+    @stack('script')
 </body>
 </html>

@@ -8,22 +8,28 @@ use App\Models\Menu;
 use App\Models\Categories;
 use App\Models\Event;
 use App\Models\Facility;
+use App\Models\Slider;
+use App\Models\Gallery;
 
 class HomeController extends Controller
 {
     public function index(){
-        $master = Master::latest()->limit(1)->get();
+        $master = Master::latest()->first();
+        $kedai = $master->groupedKedai();
+        $wahana = $master->groupedWahana();
         $menu = Menu::latest()->where("is_best", true)->get();
         $event = Event::latest()->limit(3)->get();
-        return view('index', ["master" => $master[0], "menu" => $menu, "event" => $event]);
+        $slider = Slider::latest()->get();
+        $gallery = Gallery::latest()->get();
+        return view('index', ["master" => $master, "menu" => $menu, "event" => $event, "slider" => $slider, "gallery" => $gallery, "kedai" => $kedai, "wahana" => $wahana]);
     }
     public function about(){
-        $master = Master::latest()->limit(1)->get();
+        $master = Master::latest()->first();
         $facilities = Facility::latest()->get();
-        return view('about', ["master" => $master[0], "facilities" => $facilities]);
+        return view('about', ["master" => $master, "facilities" => $facilities]);
     }
     public function menu(Request $request){
-        $master = Master::latest()->limit(1)->get();
+        $master = Master::latest()->first();
         $category = Categories::latest()->get();
         $menuQuery = Menu::with('category')->latest();
 
@@ -31,7 +37,7 @@ class HomeController extends Controller
             $menuQuery->where('category_id', $request->category);
         }
         $menu = $menuQuery->get();
-        return view('menu', ["master" => $master[0], "categories" => $category, "menu" => $menu]);
+        return view('menu', ["master" => $master, "categories" => $category, "menu" => $menu]);
     }
     public function event (Request $request)
     {

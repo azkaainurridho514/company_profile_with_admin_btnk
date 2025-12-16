@@ -8,6 +8,8 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\SliderController;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login-admin', [LoginController::class, 'showLoginForm'])->name('admin.login.form');
@@ -68,6 +70,9 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/event/delete/{id}', [EventController::class, "destroy"])->name('admin.event.delete');
         Route::delete('/menu/delete/{id}', [MenuController::class, "destroy"])->name('admin.menu.delete');
         Route::delete('/category/delete/{id}', [CategoryController::class, "destroy"])->name('admin.category.delete');
+
+        Route::resource('gallery', GalleryController::class);
+        Route::resource('slider', SliderController::class);
     });
 });
 

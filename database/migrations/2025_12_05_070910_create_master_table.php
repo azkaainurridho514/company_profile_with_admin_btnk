@@ -10,32 +10,43 @@ return new class extends Migration
     {
         Schema::create('masters', function (Blueprint $table) {
             $table->id();
-            $table->string("foto_header");
-            $table->string("greating_home_1");
-            $table->string("greating_home_2");
-            $table->string("greating_home_3");
-            $table->string("visi");
-            $table->string("misi");
-            $table->string("foto_sejarah");
-            $table->string("sejarah");
-            $table->string("desc_facilities");
-            $table->string("desc_our_menu");
-            $table->string("desc_our_menu_home");
-            $table->string("desc_event");
-            $table->string("desc_event_home");
-            $table->string("kedai_senin_jumat");
-            $table->string("kedai_sabtu");
-            $table->string("kedai_minggu");
-            $table->string("wahana_senin_jumat");
-            $table->string("wahana_sabtu");
-            $table->string("wahana_minggu");
-            $table->string("title_footer");
-            $table->string("desc");
-            $table->string("link_instagram");
-            $table->string("link_facebook");
-            $table->string("link_youtube");
-            $table->string("alamat");
-            $table->string("whatsapp");
+            $table->string("greating_home_1")->nullable();
+            $table->string("greating_home_2")->nullable();
+            $table->string("greating_home_3")->nullable();
+            $table->string("visi")->nullable();
+            $table->string("misi")->nullable();
+            $table->string("foto_sejarah")->nullable();
+            $table->string("sejarah")->nullable();
+            $table->string("desc_gallery")->nullable();
+            $table->string("desc_facilities")->nullable();
+            $table->string("desc_our_menu")->nullable();
+            $table->string("desc_our_menu_home")->nullable();
+            $table->string("desc_event")->nullable();
+            $table->string("desc_event_home")->nullable();
+
+            $table->string("kedai_senin")->nullable();
+            $table->string("kedai_selasa")->nullable();
+            $table->string("kedai_rabu")->nullable();
+            $table->string("kedai_kamis")->nullable();
+            $table->string("kedai_jumat")->nullable();
+            $table->string("kedai_sabtu")->nullable();
+            $table->string("kedai_minggu")->nullable();
+
+            $table->string("wahana_senin")->nullable();
+            $table->string("wahana_selasa")->nullable();
+            $table->string("wahana_rabu")->nullable();
+            $table->string("wahana_kamis")->nullable();
+            $table->string("wahana_jumat")->nullable();
+            $table->string("wahana_sabtu")->nullable();
+            $table->string("wahana_minggu")->nullable();
+
+            $table->string("title_footer")->nullable();
+            $table->string("desc")->nullable();
+            $table->string("link_instagram")->nullable();
+            $table->string("link_facebook")->nullable();
+            $table->string("link_youtube")->nullable();
+            $table->string("alamat")->nullable();
+            $table->string("whatsapp")->nullable();
             $table->timestamps();
         });
     }

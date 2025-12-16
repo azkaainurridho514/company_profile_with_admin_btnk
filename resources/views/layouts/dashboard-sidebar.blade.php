@@ -6,13 +6,33 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="#"><img src="{{ asset('botanika/img/botanika_white.png') }}"alt="Logo"></a>
-                {{-- <a class="navbar-brand hidden mb-4" href="./"><img src="{{ asset('botanika/img/botanika_white.png') }}" alt="Logo"></a> --}}
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="{{ Request::is('admin/home') ? 'active' : '' }}">
                         <a href="/admin/home"><i class="menu-icon fa fa-dashboard"></i>Home</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown {{ Request::is('admin/slider*') || Request::is('admin/gallery*') ? 'show' : '' }}">
+                        <a href="#"
+                        class="dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="{{ Request::is('admin/slider*') || Request::is('admin/gallery*') ? 'true' : 'false' }}">
+                            <i class="menu-icon fa fa-photo"></i>Photos
+                        </a>
+
+                        <ul class="sub-menu children dropdown-menu {{ Request::is('admin/slider*') || Request::is('admin/gallery*') ? 'show' : '' }}">
+                            <li class="{{ Request::is('admin/slider*') ? 'active' : '' }}">
+                                <i class="menu-icon fa fa-home"></i>
+                                <a href="/admin/slider">Slider Home</a>
+                            </li>
+
+                            <li class="{{ Request::is('admin/gallery*') ? 'active' : '' }}">
+                                <i class="menu-icon fa fa-photo"></i>
+                                <a href="/admin/gallery">Gallery</a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="{{ Request::is('admin/event') ? 'active' : '' }}">
