@@ -10,6 +10,7 @@ use App\Models\Event;
 use App\Models\Facility;
 use App\Models\Slider;
 use App\Models\Gallery;
+use App\Models\Entertainment;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,8 @@ class HomeController extends Controller
     public function about(){
         $master = Master::latest()->first();
         $facilities = Facility::latest()->get();
-        return view('about', ["master" => $master, "facilities" => $facilities]);
+        $wisata = Entertainment::latest()->get();
+        return view('about', ["master" => $master, "facilities" => $facilities, "wisata" => $wisata]);
     }
     public function menu(Request $request){
         $master = Master::latest()->first();

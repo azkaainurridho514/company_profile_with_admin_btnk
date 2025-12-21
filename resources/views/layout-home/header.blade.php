@@ -44,7 +44,7 @@
     <div id="bgSlider"
         class="carousel slide"
         data-bs-ride="carousel"
-        data-bs-interval="2000">
+        data-bs-interval="{{ $master->slider_delay }}">
 
         <div class="carousel-inner">
             @foreach ($slider as $item)

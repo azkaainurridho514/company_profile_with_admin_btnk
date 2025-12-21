@@ -13,7 +13,7 @@
                         '{{ asset('storage/'.$item->path) }}',
                         '{{ $item->name }}',
                         '{{ $item->desc }}',
-                        '{{ $item->price }}'
+                        '{{ rupiah($product->price) }}'
                     )" >
                     <div class="ratio ratio-4x3">
                         <img src="{{ asset('storage/'.$item->path) }}"

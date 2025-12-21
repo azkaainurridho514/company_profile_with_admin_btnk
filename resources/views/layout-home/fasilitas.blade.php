@@ -6,7 +6,7 @@
         {{ $master->desc_facilities }}
     </p>
     <div class="row g-3 px-2 d-flex justify-content-center">
-        @foreach ($facilities as $facility)
+        @forelse ($facilities as $facility)
             <div class="col-lg-4 d-flex align-items-stretch">
                 <div class="card p-4 w-100">
                     <p class="fw-bold text-center fs-4 mb-4">
@@ -17,6 +17,10 @@
                     </p>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="text-center mx-auto">
+                Tidak ada foto tersedia.
+            </div>
+        @endforelse
     </div>
 </div>

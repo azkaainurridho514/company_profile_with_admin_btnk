@@ -26,6 +26,17 @@
                 </div>
             </div>
             <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Title</label></div>
+                <div class="col-12 col-md-9">
+                    <input type="text" name="title" class="form-control" placeholder="Masukkan teks di sini"
+                    value="{{ old('title', isset($gallery) ? $gallery->title : '') }}"
+                    >
+                    @error('title')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+            <div class="row form-group">
                 <div class="col col-md-3"><label class=" form-control-label">Deskripsi</label></div>
                 <div class="col-12 col-md-9">
                     <textarea name="desc" class="form-control" rows="4" placeholder="Masukkan teks di sini">{{ old('desc', isset($gallery) ? $gallery->desc : '') }}</textarea>

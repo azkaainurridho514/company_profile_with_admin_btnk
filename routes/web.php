@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\EntertainmentController;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login-admin', [LoginController::class, 'showLoginForm'])->name('admin.login.form');
@@ -73,6 +74,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('gallery', GalleryController::class);
         Route::resource('slider', SliderController::class);
+        Route::resource('entertainment', EntertainmentController::class);
     });
 });
 

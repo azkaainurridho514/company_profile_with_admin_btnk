@@ -60,13 +60,16 @@ class DatabaseSeeder extends Seeder
             'wahana_jumat' => '',
             'wahana_sabtu' => '',
             'wahana_minggu' => '',
+            'slider_delay' => '3000',
             'title_footer' => 'Botanika',
             'desc' => 'View • Coffee • Food',
             'link_instagram' => '-',
             'link_facebook' => '-',
             'link_youtube' => '-',
+            'link_tiktok' => '-',
+            'link_maps' => '-',
             'alamat' => 'Alamat: Jl. Boenoet Lembur Kuring, Puncak, Kec. Cigugur, Kabupaten Kuningan, Jawa Barat 45552',
-            'whatsapp' => '+62 813-2492-6596',
+            'whatsapp' => '081324926596',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -99,22 +102,22 @@ class DatabaseSeeder extends Seeder
         // ===========================
         // MENUS 
         // ===========================
-        $menus = [];
-        $trueIndexes = collect(range(1, 50))->shuffle()->take(4)->toArray();
-        for ($i = 1; $i <= 50; $i++) {
-            $menus[] = [
-                'category_id' => rand(1, 5),
-                'name' => "Menu $i",
-                'desc' => "Deskripsi menu ke-$i",
-                'path' => "storage/menu/menu_$i.jpg",
-                "price" => "100000",
-                'is_best' => in_array($i, $trueIndexes),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
-        }
+        // $menus = [];
+        // $trueIndexes = collect(range(1, 50))->shuffle()->take(4)->toArray();
+        // for ($i = 1; $i <= 50; $i++) {
+        //     $menus[] = [
+        //         'category_id' => rand(1, 5),
+        //         'name' => "Menu $i",
+        //         'desc' => "Deskripsi menu ke-$i",
+        //         'path' => "storage/menu/menu_$i.jpg",
+        //         "price" => "100000",
+        //         'is_best' => in_array($i, $trueIndexes),
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ];
+        // }
 
-        DB::table('menus')->insert($menus);
+        // DB::table('menus')->insert($menus);
 
 
 

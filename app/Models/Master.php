@@ -16,6 +16,9 @@ class Master extends Model
         'misi',
         'foto_sejarah',
         'sejarah',
+
+        'desc_wahana',
+        'desc_gallery',
         'desc_facilities',
         'desc_our_menu',
         'desc_our_menu_home',
@@ -38,14 +41,20 @@ class Master extends Model
         'wahana_sabtu',
         'wahana_minggu',
 
+        'slider_delay',
         'title_footer',
         'desc',
+
         'link_instagram',
         'link_facebook',
         'link_youtube',
+        'link_tiktok',
+        'link_maps',
+
         'alamat',
-        'whatsapp'
+        'whatsapp',
     ];
+
 
      public function groupedKedai()
     {

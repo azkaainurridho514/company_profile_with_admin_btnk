@@ -71,7 +71,7 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->desc }}</td>
                         <td class="text-center">
-                            <a href="https://wa.me/{{ formatWhatsapp( $master->whatsapp) }}?text={{ urlencode('Halo, saya ingin daftar event '.$item->name) }}" 
+                            <a href="{{ whatsapp_url( $master->whatsapp) }}?text={{ urlencode('Halo, saya ingin daftar event '.$item->name) }}" 
                             class="btn btn-green" target="_blank">
                                 Daftar
                             </a>

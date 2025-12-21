@@ -25,6 +25,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'path' => 'required|image|mimes:jpg,jpeg|max:2048',
+            'title' => 'required|string',
             'desc' => 'nullable|string'
         ]);
 
@@ -32,7 +33,8 @@ class GalleryController extends Controller
 
         Gallery::create([
             'path' => $path,
-            'desc' => $request->desc
+            'title' => $request->title,
+            'desc' => $request->desc,
         ]);
 
         return redirect()->route('gallery.index')
@@ -49,8 +51,9 @@ class GalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $request->validate([
-            'path' => 'nullable|image|mimes:jpg,jpeg|max:2048',
-            'desc' => 'string'
+            'path' => 'nullable|image|mimes:jpg,jpeg,webp|max:2048',
+            'title' => 'required|string',
+            'desc' => 'string',
         ]);
 
         if ($request->hasFile('path')) {
@@ -59,6 +62,7 @@ class GalleryController extends Controller
             $gallery->path = $request->file('path')->store('gallery', 'public');
         }
 
+        $gallery->title = $request->title;
         $gallery->desc = $request->desc;
         $gallery->save();
 

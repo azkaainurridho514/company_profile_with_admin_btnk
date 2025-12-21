@@ -24,7 +24,7 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'path' => 'required|image|mimes:jpg,jpeg|max:2048',
+            'path' => 'required|image|mimes:jpg,jpeg,webp|max:2048',
             'desc' => 'nullable|string'
         ]);
 
@@ -49,7 +49,7 @@ class SliderController extends Controller
     public function update(Request $request, Slider $slider)
     {
         $request->validate([
-            'path' => 'nullable|image|mimes:jpg,jpeg|max:2048',
+            'path' => 'nullable|image|mimes:jpg,jpeg,webp|max:2048',
             'desc' => 'nullable|string'
         ]);
 

@@ -17,13 +17,13 @@ return new class extends Migration
             $table->string("misi")->nullable();
             $table->string("foto_sejarah")->nullable();
             $table->string("sejarah")->nullable();
+            $table->string("desc_wahana")->nullable();
             $table->string("desc_gallery")->nullable();
             $table->string("desc_facilities")->nullable();
             $table->string("desc_our_menu")->nullable();
             $table->string("desc_our_menu_home")->nullable();
             $table->string("desc_event")->nullable();
             $table->string("desc_event_home")->nullable();
-
             $table->string("kedai_senin")->nullable();
             $table->string("kedai_selasa")->nullable();
             $table->string("kedai_rabu")->nullable();
@@ -31,7 +31,6 @@ return new class extends Migration
             $table->string("kedai_jumat")->nullable();
             $table->string("kedai_sabtu")->nullable();
             $table->string("kedai_minggu")->nullable();
-
             $table->string("wahana_senin")->nullable();
             $table->string("wahana_selasa")->nullable();
             $table->string("wahana_rabu")->nullable();
@@ -39,12 +38,14 @@ return new class extends Migration
             $table->string("wahana_jumat")->nullable();
             $table->string("wahana_sabtu")->nullable();
             $table->string("wahana_minggu")->nullable();
-
+            $table->string("slider_delay")->nullable();
             $table->string("title_footer")->nullable();
             $table->string("desc")->nullable();
             $table->string("link_instagram")->nullable();
             $table->string("link_facebook")->nullable();
             $table->string("link_youtube")->nullable();
+            $table->string("link_tiktok")->nullable();
+            $table->string("link_maps")->nullable();
             $table->string("alamat")->nullable();
             $table->string("whatsapp")->nullable();
             $table->timestamps();

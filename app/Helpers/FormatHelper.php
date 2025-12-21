@@ -21,3 +21,36 @@ if (!function_exists('formatWhatsapp')) {
         return preg_replace('/^0/', '+62', $number);
     }
 }
+
+
+if (!function_exists('whatsapp_url')) {
+    /**
+     * Generate WhatsApp URL dengan nomor dan pesan
+     * 
+     * @param string $phone Nomor telepon (format: 628123456789)
+     * @param string $message Pesan yang akan dikirim
+     * @return string
+     */
+    function whatsapp_url($phone, $message = '')
+    {
+        // Bersihkan nomor dari karakter non-digit
+        $cleanPhone = preg_replace('/[^0-9]/', '', $phone);
+        
+        // Jika nomor dimulai dengan 0, ganti dengan 62
+        if (substr($cleanPhone, 0, 1) === '0') {
+            $cleanPhone = '62' . substr($cleanPhone, 1);
+        }
+        
+        // Encode pesan untuk URL
+        $encodedMessage = urlencode($message);
+        
+        // Generate URL
+        $url = "https://wa.me/{$cleanPhone}";
+        
+        if (!empty($message)) {
+            $url .= "?text={$encodedMessage}";
+        }
+        
+        return $url;
+    }
+}

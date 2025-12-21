@@ -12,13 +12,18 @@
     @if(session('success'))
         <div class="row mt-3">
             <div class="col-lg-12">
-                <div class="alert alert-success">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
         </div>
     @endif
+
     <div class="row mt-3">
+        {{-- KOLOM KIRI --}}
         <div class="col-lg-6">
 
             {{-- HALAMAN HOME --}}
@@ -223,6 +228,20 @@
                             </div>
                         </div>
 
+                        {{-- Slider --}}
+                         <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Durasi Slider (millidetik)</label>
+                                <input type="number" 
+                                    value="{{ $master->slider_delay }}" 
+                                    name="slider_delay" 
+                                    class="form-control">
+                                    @error('slider_delay')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                            </div>
+                        </div>
+
                         {{-- MENU DESC HOME --}}
                         <div class="col-12">
                             <div class="form-group">
@@ -249,6 +268,158 @@
                 </div>
             </div>
 
+            {{-- HALAMAN MENU & EVENT --}}
+            <div class="card">
+                <div class="card-header"><strong>Halaman Menu & Halaman Event</strong></div>
+                <div class="card-body card-block">
+                    <div class="row form-group">
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Menu Deskripsi</label>
+                                <textarea name="desc_our_menu" class="form-control" rows="5">{{ $master->desc_our_menu }}</textarea>
+                                @error('desc_our_menu')
+                                    <small class="text-danger">Field ini harus di isi</small>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Event Deskripsi</label>
+                                <textarea name="desc_event" class="form-control" rows="5">{{ $master->desc_event }}</textarea>
+                                @error('desc_event')
+                                    <small class="text-danger">Field ini harus di isi</small>
+                                @enderror
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {{-- KOLOM KANAN --}}
+        <div class="col-lg-6">
+
+            {{-- FOOTER --}}
+            <div class="card">
+                <div class="card-header"><strong>Bagian Footer</strong></div>
+                <div class="card-body card-block">
+                    <div class="row form-group">
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Title Footer</label>
+                                <input type="text" 
+                                       value="{{ $master->title_footer }}" 
+                                       name="title_footer"
+                                       class="form-control">
+                                @error('title_footer')
+                                    <small class="text-danger">Field ini harus di isi</small>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Deskripsi</label>
+                                <textarea name="desc" class="form-control" rows="5">{{ $master->desc }}</textarea>
+                                @error('desc')
+                                    <small class="text-danger">Field ini harus di isi</small>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- LINK SOSMED --}}
+                        <div class="col-12 px-3 ">
+                            <label class="form-control-label"><strong>Link</strong></label>
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label class="form-control-label">Instagram</label>
+                                    <input type="text" 
+                                           value="{{ $master->link_instagram }}" 
+                                           name="link_instagram"
+                                           class="form-control">
+                                    @error('link_instagram')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label class="form-control-label">Facebook</label>
+                                    <input type="text" 
+                                           value="{{ $master->link_facebook }}" 
+                                           name="link_facebook"
+                                           class="form-control">
+                                    @error('link_facebook')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label class="form-control-label">Youtube</label>
+                                    <input type="text" 
+                                           value="{{ $master->link_youtube }}" 
+                                           name="link_youtube"
+                                           class="form-control">
+                                    @error('link_youtube')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label class="form-control-label">Tiktok</label>
+                                    <input type="text" 
+                                           value="{{ $master->link_tiktok }}" 
+                                           name="link_tiktok"
+                                           class="form-control">
+                                    @error('link_tiktok')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Alamat</label>
+                                <textarea name="alamat" class="form-control" rows="5">{{ $master->alamat }}</textarea>
+                                @error('alamat')
+                                    <small class="text-danger">Field ini harus di isi</small>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Link Maps</label>
+                                <input type="text" 
+                                       value="{{ $master->link_maps }}" 
+                                       name="link_maps"
+                                       class="form-control">
+                                @error('link_maps')
+                                    <small class="text-danger">Field ini harus di isi</small>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">No Whatsapp</label>
+                                <input type="text" 
+                                       value="{{ $master->whatsapp }}" 
+                                       name="whatsapp"
+                                       class="form-control">
+                                @error('whatsapp')
+                                    <small class="text-danger">Field ini harus di isi</small>
+                                @enderror
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             {{-- HALAMAN ABOUT --}}
             <div class="card">
                 <div class="card-header"><strong>Halaman About</strong></div>
@@ -303,142 +474,21 @@
                                     @enderror
                             </div>
                         </div>
-
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-control-label">Desc Wahana</label>
+                                <input type="text"  
+                                    value="{{ $master->desc_wahana }}" 
+                                    name="desc_wahana" 
+                                    class="form-control">
+                                    @error('desc_wahana')
+                                        <small class="text-danger">Field ini harus di isi</small>
+                                    @enderror
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-        </div>
-        {{-- KOLOM KANAN --}}
-        <div class="col-lg-6">
-
-            {{-- FOOTER --}}
-            <div class="card">
-                <div class="card-header"><strong>Bagian Footer</strong></div>
-                <div class="card-body card-block">
-                    <div class="row form-group">
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="form-control-label">Title Footer</label>
-                                <input type="text" 
-                                       value="{{ $master->title_footer }}" 
-                                       name="title_footer"
-                                       class="form-control">
-                                @error('title_footer')
-                                    <small class="text-danger">Field ini harus di isi</small>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="form-control-label">Deskripsi</label>
-                                <textarea name="desc" class="form-control" rows="5">{{ $master->desc }}</textarea>
-                                @error('desc')
-                                    <small class="text-danger">Field ini harus di isi</small>
-                                @enderror
-                            </div>
-                        </div>
-
-                        {{-- LINK SOSMED --}}
-                        <div class="col-12 px-3 ">
-                            <label class="form-control-label"><strong>Link</strong></label>
-                            <div class="row">
-                                <div class="form-group col-lg-4">
-                                    <label class="form-control-label">Instagram</label>
-                                    <input type="text" 
-                                           value="{{ $master->link_instagram }}" 
-                                           name="link_instagram"
-                                           class="form-control">
-                                    @error('link_instagram')
-                                        <small class="text-danger">Field ini harus di isi</small>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group col-lg-4">
-                                    <label class="form-control-label">Facebook</label>
-                                    <input type="text" 
-                                           value="{{ $master->link_facebook }}" 
-                                           name="link_facebook"
-                                           class="form-control">
-                                    @error('link_facebook')
-                                        <small class="text-danger">Field ini harus di isi</small>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group col-lg-4">
-                                    <label class="form-control-label">Youtube</label>
-                                    <input type="text" 
-                                           value="{{ $master->link_youtube }}" 
-                                           name="link_youtube"
-                                           class="form-control">
-                                    @error('link_youtube')
-                                        <small class="text-danger">Field ini harus di isi</small>
-                                    @enderror
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="form-control-label">Alamat</label>
-                                <textarea name="alamat" class="form-control" rows="5">{{ $master->alamat }}</textarea>
-                                @error('alamat')
-                                    <small class="text-danger">Field ini harus di isi</small>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="form-control-label">No Whatsapp</label>
-                                <input type="text" 
-                                       value="{{ $master->whatsapp }}" 
-                                       name="whatsapp"
-                                       class="form-control">
-                                @error('whatsapp')
-                                    <small class="text-danger">Field ini harus di isi</small>
-                                @enderror
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            {{-- HALAMAN MENU & EVENT --}}
-            <div class="card">
-                <div class="card-header"><strong>Halaman Menu & Halaman Event</strong></div>
-                <div class="card-body card-block">
-                    <div class="row form-group">
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="form-control-label">Menu Deskripsi</label>
-                                <textarea name="desc_our_menu" class="form-control" rows="5">{{ $master->desc_our_menu }}</textarea>
-                                @error('desc_our_menu')
-                                    <small class="text-danger">Field ini harus di isi</small>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="form-control-label">Event Deskripsi</label>
-                                <textarea name="desc_event" class="form-control" rows="5">{{ $master->desc_event }}</textarea>
-                                @error('desc_event')
-                                    <small class="text-danger">Field ini harus di isi</small>
-                                @enderror
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
         </div>
     </div>
 </form>

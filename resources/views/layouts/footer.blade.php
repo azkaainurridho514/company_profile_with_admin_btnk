@@ -9,14 +9,17 @@
                     {{ $master->desc }}
                 </p>
                 <div class="d-flex gap-3">
-                    <a href="{{ $master->link_instagram }}" class="text-white">
+                    <a target="_blank" href="{{ $master->link_instagram }}" class="text-white">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="{{ $master->link_facebook }}" class="text-white">
+                    <a target="_blank" href="{{ $master->link_facebook }}" class="text-white">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="{{ $master->link_youtube }}" class="text-white">
+                    <a target="_blank" href="{{ $master->link_youtube }}" class="text-white">
                         <i class="fab fa-youtube"></i>
+                    </a>
+                    <a target="_blank" href="{{ $master->link_tiktok }}" class="text-white">
+                        <i class="fab fa-tiktok"></i>
                     </a>
                 </div>
                 <p class="fs-6 mt-3">
@@ -28,10 +31,14 @@
                     Contact Center
                 </p>
                 <p class="fs-6">
-                    <i class="fas fa-map-marker-alt me-2"></i>  {{ $master->alamat }}
+                    <a target="_blank" href="{{ $master->link_maps }}" class="text-white text-decoration-none">
+                        <i class="fas fa-map-marker-alt me-2"></i>  {{ $master->alamat }}
+                    </a>
                 </p>
                 <p class="fs-6">
-                    <i class="fab fa-whatsapp me-2"></i> {{ $master->whatsapp }}
+                    <a target="_blank" href="{{ whatsapp_url($master->whatsapp) }}" class="text-white text-decoration-none">
+                        <i class="fab fa-whatsapp me-2"></i> Whatsapp
+                    </a>
                 </p>
             </div>
         </div>

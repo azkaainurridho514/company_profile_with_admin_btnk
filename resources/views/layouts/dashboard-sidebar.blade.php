@@ -32,6 +32,11 @@
                                 <i class="menu-icon fa fa-photo"></i>
                                 <a href="/admin/gallery">Gallery</a>
                             </li>
+
+                            <li class="{{ Request::is('admin/entertainment*') ? 'active' : '' }}">
+                                <i class="menu-icon fa fa-car"></i>
+                                <a href="/admin/entertainment">Wahana</a>
+                            </li>
                         </ul>
                     </li>
 

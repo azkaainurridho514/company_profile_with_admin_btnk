@@ -25,8 +25,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Photo</th>
-                            <th scope="col">desc</th>
-                            <th scope="col">action</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Desc</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,7 +38,8 @@
                                     <img src="{{ asset('storage/'.$item->path) }}" alt="" class="w-100" style="cursor:pointer"
                                         onclick="openPreview('{{ asset('storage/'.$item->path) }}')">
                                 </td>
-                                <td style="width:55%;">{{ $item->desc }}</td>
+                                <td style="width:20%;">{{ $item->title }}</td>
+                                <td style="width:35%;">{{ $item->desc }}</td>
                                 <td style="width:10%;">
                                     <a href="/admin/gallery/{{ $item->id }}/edit">
                                         <span class="badge badge-info">Edit</span>

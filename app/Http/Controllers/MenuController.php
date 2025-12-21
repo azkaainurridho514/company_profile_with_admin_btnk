@@ -32,7 +32,7 @@ class MenuController extends Controller
             'name'        => 'required|string|max:255',
             'desc'        => 'required|string',
             'price'        => 'required|numeric',
-            'path'        => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'path'        => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $filePath = null;
@@ -62,7 +62,7 @@ class MenuController extends Controller
             'name'        => 'required|string|max:255',
             'desc'        => 'required|string',
             'price'        => 'required|numeric',
-            'path'        => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'path'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $filePath = $menu->path;
