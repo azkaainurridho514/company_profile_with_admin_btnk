@@ -58,9 +58,10 @@
     <table class="table">
         <thead>
             <tr>
-            <th scope="col">#</th>
+            <th scope="col">No</th>
             <th scope="col">Tanggal</th>
             <th scope="col">Nama Event</th>
+            <th scope="col">Deskripsi</th>
             <th scope="col"></th>
             </tr>
         </thead>
@@ -68,6 +69,7 @@
                 @forelse ($events as $item)
                     <tr>
                         <th scope="row">{{ $events->firstItem() + $loop->index }}</th>
+                        <td>{{ format_datetime($item->date) }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->desc }}</td>
                         <td class="text-center">
