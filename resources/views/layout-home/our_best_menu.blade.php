@@ -24,7 +24,7 @@
                     <div class="p-3 mt-1">
                         <p class="fs-5 text-center fw-bold">{{ $item->name }}</p>
                         <p class="fs-6 text-center">
-                            {{ $item->desc }}
+                            {{ rupiah($item->price) }}
                         </p>
                     </div>
                 </div>
