@@ -25,11 +25,37 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'  => 'required|string|max:255',
-            'desc'  => 'required|string',
-            'date'  => 'required|date',
-            'photo' => 'required|image|mimes:jpg,jpeg,webp|max:2048',
+            'name'       => 'required|string|max:255',
+            'desc'       => 'required|string',
+            'date'       => 'required|date',
+            'start_time' => 'required|date_format:H:i',
+            'end_time'   => 'nullable|date_format:H:i',
+            'photo'      => 'nullable|image|mimes:jpg,jpeg,webp|max:2048',
         ]);
+
+        $endTime = ($request->boolean('until_finish') || !$request->end_time) 
+            ? null 
+            : $request->end_time;
+
+        $hasConflict = Event::where('date', $request->date)
+            ->where(function ($query) use ($request, $endTime) {
+                $query->whereNull('end_time')
+                    ->where('start_time', '<=', $request->start_time);
+
+                if ($endTime) {
+                    $query->orWhere(function ($q) use ($request, $endTime) {
+                        $q->where('start_time', '<', $endTime)
+                        ->where('end_time', '>', $request->start_time);
+                    });
+                }
+            })
+            ->exists();
+
+        if ($hasConflict) {
+            return back()
+                ->withErrors(['start_time' => 'Jadwal bentrok dengan event lain'])
+                ->withInput();
+        }
 
         $photoPath = null;
         if ($request->hasFile('photo')) {
@@ -37,24 +63,56 @@ class EventController extends Controller
         }
 
         Event::create([
-            'name'  => $request->name,
-            'desc'  => $request->desc,
-            'date'  => $request->date,
-            'photo' => $photoPath,
+            'name'       => $request->name,
+            'desc'       => $request->desc,
+            'date'       => $request->date,
+            'start_time' => $request->start_time,
+            'end_time'   => $endTime,
+            'photo'      => $photoPath,
         ]);
 
-        return redirect()->route('admin.event')->with('success', 'Event berhasil ditambahkan!');
+        return redirect()
+            ->route('admin.event')
+            ->with('success', 'Event berhasil ditambahkan!');
+
     }
     public function update(Request $request, $id)
     {
         $event = Event::findOrFail($id);
 
         $request->validate([
-            'name'  => 'required|string|max:255',
-            'desc'  => 'required|string',
-            'date'  => 'required|date',
-            'photo' => 'nullable|image|mimes:jpg,jpeg,webp|max:2048',
+            'name'       => 'required|string|max:255',
+            'desc'       => 'required|string',
+            'date'       => 'required|date',
+            'start_time' => 'required',
+            'end_time'   => 'nullable',
+            'photo'      => 'nullable|image|mimes:jpg,jpeg,webp|max:2048',
         ]);
+
+        $endTime = ($request->boolean('until_finish') || !$request->end_time) 
+            ? null 
+            : $request->end_time;
+
+        $hasConflict = Event::where('date', $request->date)
+            ->where('id', '!=', $event->id)
+            ->where(function ($query) use ($request, $endTime) {
+                $query->whereNull('end_time')
+                    ->where('start_time', '<=', $request->start_time);
+
+                if ($endTime) {
+                    $query->orWhere(function ($q) use ($request, $endTime) {
+                        $q->where('start_time', '<', $endTime)
+                        ->where('end_time', '>', $request->start_time);
+                    });
+                }
+            })
+            ->exists();
+
+        if ($hasConflict) {
+            return back()
+                ->withErrors(['start_time' => 'Jadwal bentrok dengan event lain'])
+                ->withInput();
+        }
 
         $photoPath = $event->photo;
 
@@ -67,13 +125,17 @@ class EventController extends Controller
         }
 
         $event->update([
-            'name'  => $request->name,
-            'desc'  => $request->desc,
-            'date'  => $request->date,
-            'photo' => $photoPath,
+            'name'       => $request->name,
+            'desc'       => $request->desc,
+            'date'       => $request->date,
+            'start_time' => $request->start_time,
+            'end_time'   => $endTime, 
+            'photo'      => $photoPath,
         ]);
 
-        return redirect()->route('admin.event')->with('success', 'Event berhasil diperbarui!');
+        return redirect()
+            ->route('admin.event')
+            ->with('success', 'Event berhasil diperbarui!');
     }
     public function destroy($id)
     {

@@ -14,6 +14,7 @@
                     <th scope="col">Nama</th>
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Tanggal</th>
+                    <th scope="col">Waktu</th>
                     <th scope="col">Foto</th>
                     <th scope="col">action</th>
                 </tr>
@@ -24,7 +25,12 @@
                         <th scope="row">{{ $event->firstItem() + $loop->index }}</th>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->desc }}</td>
-                        <td>{{ format_datetime($item->date) }}</td>
+                        <td>{{ format_date($item->date) }}</td>
+                        <td>
+                            {{ format_time($item->start_time) }}
+                            -
+                            {{ $item->end_time ? format_time($item->end_time) : 's/d selesai' }}
+                        </td>
                         <td>
                             <div class="mb-2 w-100" id="preview-wrapper">
                                 <img src="{{ asset('storage/'.$item->photo) }}" alt="Preview" width="200" class="img-thumbnail" >

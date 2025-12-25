@@ -15,6 +15,32 @@ if (!function_exists('format_datetime')) {
         return Carbon::parse($datetime)->translatedFormat($format);
     }
 }
+if (!function_exists('format_date')) {
+    /**
+     * Format datetime dari Y-m-d H:i:s ke d F Y, H:i
+     *
+     * @param string $datetime
+     * @param string $format
+     * @return string
+     */
+    function format_date($datetime, $format = 'd F Y')
+    {
+        return Carbon::parse($datetime)->translatedFormat($format);
+    }
+}
+if (!function_exists('format_time')) {
+    /**
+     * Format datetime dari Y-m-d H:i:s ke d F Y, H:i
+     *
+     * @param string $datetime
+     * @param string $format
+     * @return string
+     */
+    function format_time($datetime, $format = 'H:i')
+    {
+        return Carbon::parse($datetime)->translatedFormat($format);
+    }
+}
 
 if (!function_exists('formatWhatsapp')) {
     function formatWhatsapp($number) {

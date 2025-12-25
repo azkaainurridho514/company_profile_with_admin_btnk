@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("visi")->nullable();
             $table->string("misi")->nullable();
             $table->string("foto_sejarah")->nullable();
-            $table->string("sejarah")->nullable();
+            $table->text("sejarah")->nullable();
             $table->string("desc_wahana")->nullable();
             $table->string("desc_gallery")->nullable();
             $table->string("desc_facilities")->nullable();

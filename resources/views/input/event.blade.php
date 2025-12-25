@@ -31,12 +31,48 @@
             <div class="row form-group">
                 <div class="col col-md-3"><label class=" form-control-label">Tanggal</label></div>
                 <div class="col-12 col-md-9">
-                    <input type="datetime-local" name="date" class="form-control" value="{{ old('date', isset($event) ? $event->date : '') }}">
+                    <input type="date" name="date" class="form-control" value="{{ old('date', isset($event) ? $event->date : '') }}">
                     @error('date')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>
             </div>
+            <div class="row form-group">
+                <div class="col col-md-3"><label class=" form-control-label">Jam Mulai</label></div>
+                <div class="col-12 col-md-9">
+                    <input type="time" name="start_time" class="form-control" value="{{ old('start_time', isset($event) ? $event->start_time : '') }}">
+                    @error('start_time')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-3">
+                    <label class="form-control-label">Jam Selesai</label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input type="time" 
+                        name="end_time" 
+                        id="end_time"
+                        class="form-control" 
+                        value="{{ old('end_time', isset($event) ? $event->end_time : '') }}"
+                        {{ old('until_finish', isset($event) && $event->end_time === null) ? 'disabled' : '' }}>
+                    
+                    <label class="mt-2 d-block">
+                        <input type="checkbox" 
+                            name="until_finish" 
+                            id="until_finish"
+                            value="1"
+                            {{ old('until_finish', isset($event) && $event->end_time === null) ? 'checked' : '' }}>
+                        Sampai selesai
+                    </label>
+                    
+                    @error('end_time')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+
             <div class="row form-group">
                 <div class="col col-md-3"><label class=" form-control-label">Foto</label></div>
                 <div class="col-12 col-md-9">
@@ -63,3 +99,21 @@
     </form>
 </div>
 @endsection
+
+@push('script')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const checkbox = document.getElementById('until_finish');
+    const endTimeInput = document.getElementById('end_time');
+    
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            endTimeInput.value = '';  
+            endTimeInput.disabled = true; 
+        } else {
+            endTimeInput.disabled = false;  
+        }
+    });
+});
+</script>
+@endpush

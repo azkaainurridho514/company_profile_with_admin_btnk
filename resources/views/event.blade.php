@@ -60,6 +60,7 @@
             <tr>
             <th scope="col">No</th>
             <th scope="col">Tanggal</th>
+            <th scope="col">Waktu</th>
             <th scope="col">Nama Event</th>
             <th scope="col">Deskripsi</th>
             <th scope="col"></th>
@@ -69,7 +70,12 @@
                 @forelse ($events as $item)
                     <tr>
                         <th scope="row">{{ $events->firstItem() + $loop->index }}</th>
-                        <td>{{ format_datetime($item->date) }}</td>
+                        <td>{{ format_date($item->date) }}</td>
+                        <td>
+                            {{ format_time($item->start_time) }}
+                            -
+                            {{ $item->end_time ? format_time($item->end_time) : 's/d selesai' }}
+                        </td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->desc }}</td>
                         <td class="text-center">
@@ -81,7 +87,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="4" class="text-center">Tidak ada event tersedia.</td>
+                        <td colspan="5" class="text-center">Tidak ada event tersedia.</td>
                     </tr>
                 @endforelse
             </tbody>
