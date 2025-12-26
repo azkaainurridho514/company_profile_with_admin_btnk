@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('entertainments', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('desc')->nullable();
+            $table->text('desc')->nullable();
             $table->string('path_1');
             $table->string('path_2');
             $table->string('path_3');

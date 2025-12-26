@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('category_id');
             $table->string("name");
-            $table->string("desc");
+            $table->text("desc");
             $table->string("path");
             $table->string("price");
             $table->boolean("is_best");

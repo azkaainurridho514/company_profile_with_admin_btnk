@@ -23,6 +23,9 @@
                         <p class="fs-6 text-center">
                             {{ $item->desc }}
                         </p>
+                        <p class="fs-6 text-center fw-bold">
+                            {{ format_date($item->date) }}, {{ format_time($item->start_time) }} - {{ $item->end_time ? format_time($item->end_time) : 's/d selesai' }}
+                        </p>
                     </div>
                 </div>
             </div>
